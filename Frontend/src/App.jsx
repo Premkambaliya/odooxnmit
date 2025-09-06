@@ -7,16 +7,16 @@ import Newsell from './Pages/Newsell'
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Navbar />
+    <BrowserRouter>
+      <Navbar /> {/* Fixed navbar */}
+      <div className="page-content">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sell" element={<Newsell />} />
         </Routes>
-      </BrowserRouter>
-    </>
-  )
+      </div>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
