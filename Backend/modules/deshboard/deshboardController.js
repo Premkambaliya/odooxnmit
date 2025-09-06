@@ -29,15 +29,23 @@ const createUser = async (req, res) => {
 };
 
 // READ users
-const getUsers = async (req, res) => {
+const getUserByEmail = async (req, res) => {
   try {
     const db = getDB();
-    const users = await db.collection("users").find().toArray();
-    res.status(200).json(users);
+    const { email } = req.query; // get email from query
+    if (!email) return res.status(400).json({ message: "Email is required" });
+
+    const user = await db.collection("users").findOne({ email }); // query by email
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    res.status(200).json(user);
   } catch (error) {
-    res.status(500).json({ message: "Error fetching users", error: error.message });
+    res.status(500).json({ message: "Error fetching user", error: error.message });
   }
 };
+
+
+
 
 // UPDATE user
 // Update user
@@ -94,4 +102,4 @@ const deleteUser = async (req, res) => {
   }
 };
 
-module.exports = { createUser, getUsers, updateUser, deleteUser };
+module.exports = { createUser, getUserById, updateUser, deleteUser,getUserByEmail };
