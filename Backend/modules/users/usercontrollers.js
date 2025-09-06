@@ -8,21 +8,12 @@ const addUser = async (req, res) => {
       username,
       email,
       password,
-      location,
       mobile,
-      profilePhoto,
-      isPublic,
-      role,
-      skills = []
     } = req.body;
 
     // Basic validation
-    if (!username || !email || !password || !location || !mobile) {
+    if (!username || !email || !password || !mobile) {
       return res.status(400).json({ message: 'Missing required fields' });
-    }
-
-    if (!Array.isArray(skills) || !skills.every(skill => typeof skill === 'string')) {
-      return res.status(400).json({ message: 'Skills must be an array of strings' });
     }
 
     // Check for duplicate email or username
@@ -45,13 +36,8 @@ const addUser = async (req, res) => {
     const newUser = {
       username,
       email,
-      password: hashedPassword,
-      location,
       mobile,
-      profilePhoto: profilePhoto || '',
-      isPublic: typeof isPublic === 'boolean' ? isPublic : true,
-      role: role || 'user',
-      skills,
+      password: hashedPassword,
       createdAt: istNow
     };
 
@@ -83,12 +69,7 @@ const getprofile = async (req, res) => {
     res.json({
       username: user.username,
       email: user.email,
-      location: user.location,
-      mobile: user.mobile,
-      profilePhoto: user.profilePhoto,
-      isPublic: user.isPublic,
-      role: user.role,
-      skills: user.skills, // ✅ Add this line
+      mobile: user.mobile, // ✅ Add this line
       createdAt: user.createdAt
     });
   } catch (error) {
