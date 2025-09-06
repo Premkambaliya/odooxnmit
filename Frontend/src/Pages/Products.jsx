@@ -5,16 +5,20 @@ export default function Products() {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
+  const [loading, setLoading] = useState(true); // loader state
 
   // Fetch products from API
   useEffect(() => {
     const fetchProducts = async () => {
       try {
+        setLoading(true);
         const res = await fetch("https://odooxnmit.onrender.com/api/getproducts");
         const data = await res.json();
         setProducts(data);
       } catch (err) {
         console.error("Error fetching products:", err);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -56,8 +60,12 @@ export default function Products() {
         </select>
       </div>
 
-      {/* Product Grid */}
-      {filteredProducts.length > 0 ? (
+      {/* Loader */}
+      {loading ? (
+        <div className="flex justify-center items-center h-40">
+          <div className="w-12 h-12 border-4 border-green-600 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      ) : filteredProducts.length > 0 ? (
         <div className="max-w-7xl mx-auto grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {filteredProducts.map((product) => (
             <ProductCard key={product._id} product={product} />

@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
 export default function ProductDetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [product, setProduct] = useState(null);
   const [allProducts, setAllProducts] = useState([]);
   const [quantity, setQuantity] = useState(1);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
+        setLoading(true);
         const res = await fetch("https://odooxnmit.onrender.com/api/getproducts");
         const data = await res.json();
         setAllProducts(data);
@@ -19,13 +22,15 @@ export default function ProductDetail() {
         setProduct(foundProduct);
       } catch (err) {
         console.error("Error fetching products:", err);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchProducts();
-  }, [id]);
+  }, [id]); // refreshes when id changes
 
-  if (!product) {
+  if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
         <div className="w-12 h-12 border-4 border-green-600 border-t-transparent rounded-full animate-spin"></div>
@@ -33,7 +38,15 @@ export default function ProductDetail() {
     );
   }
 
-  // Quantity
+  if (!product) {
+    return (
+      <div className="flex justify-center items-center h-screen text-gray-600">
+        Product not found.
+      </div>
+    );
+  }
+
+  // Quantity logic
   const increaseQty = () => setQuantity((prev) => prev + 1);
   const decreaseQty = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
   const totalPrice = product.price * quantity;
@@ -107,47 +120,50 @@ export default function ProductDetail() {
         </div>
       </div>
 
-{/* Suggested Products */}
-{suggested.length > 0 && (
-  <div className="mt-16">
-    <h2 className="text-2xl font-bold text-gray-800 mb-6">
-      You may also like
-    </h2>
+      {/* Suggested Products */}
+      {suggested.length > 0 && (
+        <div className="mt-16">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">
+            You may also like
+          </h2>
 
-    <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide">
-      {suggested.map((item) => (
-        <Link
-          to={`/products/${item._id}`}
-          key={item._id}
-          className="min-w-[250px] bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition flex-shrink-0"
-        >
-          {/* Image */}
-          <div className="h-48 flex items-center justify-center bg-gray-100">
-            <img
-              src={item.imageUrl || "/placeholder.png"}
-              alt={item.title}
-              className="max-h-full object-contain"
-            />
-          </div>
+          <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide">
+            {suggested.map((item) => (
+              <div
+                key={item._id}
+                onClick={() => navigate(`/products/${item._id}`)}
+                className="cursor-pointer min-w-[250px] bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition flex-shrink-0"
+              >
+                {/* Image */}
+                <div className="h-48 flex items-center justify-center bg-gray-100">
+                  <img
+                    src={item.imageUrl || "/placeholder.png"}
+                    alt={item.title}
+                    className="max-h-full object-contain"
+                  />
+                </div>
 
-          {/* Info */}
-          <div className="p-4">
-            <span className="text-xs font-medium text-green-700 bg-green-100 px-2 py-1 rounded">
-              {item.category}
-            </span>
-            <h3 className="font-semibold text-gray-800 mt-2 truncate">
-              {item.title}
-            </h3>
-            <p className="text-green-600 font-bold mt-1">₹{item.price}</p>
-            <button className="mt-3 w-full bg-green-600 text-white py-2 rounded-lg text-sm hover:bg-green-700 transition">
-              View Details
-            </button>
+                {/* Info */}
+                <div className="p-4">
+                  <span className="text-xs font-medium text-green-700 bg-green-100 px-2 py-1 rounded">
+                    {item.category}
+                  </span>
+                  <h3 className="font-semibold text-gray-800 mt-2 truncate">
+                    {item.title}
+                  </h3>
+                  <p className="text-green-600 font-bold mt-1">₹{item.price}</p>
+                  <button
+                    onClick={() => navigate(`/products/${item._id}`)}
+                    className="mt-3 w-full bg-green-600 text-white py-2 rounded-lg text-sm hover:bg-green-700 transition"
+                  >
+                    View Details
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
-        </Link>
-      ))}
-    </div>
-  </div>
-)}
+        </div>
+      )}
     </div>
   );
 }
