@@ -7,7 +7,7 @@ export default function ProductCard({ product }) {
       {/* Image */}
       <div className="h-40 bg-gray-100 flex items-center justify-center">
         <img
-          src={product.imageUrl || "/placeholder.png"}
+          src={product.image || "/placeholder.png"}
           alt={product.title}
           className="h-full object-contain"
         />
