@@ -181,7 +181,7 @@ export default function ProfileDropdown() {
 
       {/* Login Modal */}
       {showLoginModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex justify-center items-center z-50">
+        <div className="fixed inset-0 bg-opacity-60 backdrop-blur-sm flex justify-center items-center z-50">
           <div className="bg-white rounded-lg p-8 w-96 shadow-lg relative">
             <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
             <form onSubmit={handleLogin}>
@@ -235,7 +235,7 @@ export default function ProfileDropdown() {
 
       {/* Signup Modal */}
       {showSignupModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex justify-center items-center z-50">
+        <div className="fixed inset-0 bg-opacity-60 backdrop-blur-sm flex justify-center items-center z-50">
           <div className="bg-white rounded-lg p-8 w-96 shadow-lg relative">
             <h2 className="text-2xl font-bold mb-6 text-center">Create Account</h2>
             <form onSubmit={handleSignup}>

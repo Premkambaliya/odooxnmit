@@ -29,18 +29,8 @@ const createUser = async (req, res) => {
 };
 
 // READ users
-const getUsers = async (req, res) => {
-  try {
-    const db = getDB();
-    const users = await db.collection("users").find().toArray();
-    res.status(200).json(users);
-  } catch (error) {
-    res.status(500).json({ message: "Error fetching users", error: error.message });
-  }
-};
 
-// UPDATE user
-// Update user
+
 const updateUser = async (req, res) => {
   try {
     const db = getDB();
@@ -94,4 +84,4 @@ const deleteUser = async (req, res) => {
   }
 };
 
-module.exports = { createUser, getUsers, updateUser, deleteUser };
+module.exports = { createUser, getUserById, updateUser, deleteUser,getUserByEmail };

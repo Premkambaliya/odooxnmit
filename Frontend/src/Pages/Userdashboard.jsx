@@ -33,7 +33,7 @@ const UserDashboard = () => {
                     Full Name
                   </label>
                   <div className="p-3 bg-gray-50 rounded-md border border-gray-200">
-                    <span className="text-gray-900">John Doe</span>
+                    <span className="text-gray-900">mahir</span>
                   </div>
                 </div>
 
@@ -43,7 +43,7 @@ const UserDashboard = () => {
                     Username
                   </label>
                   <div className="p-3 bg-gray-50 rounded-md border border-gray-200">
-                    <span className="text-gray-900">john_doe</span>
+                    <span className="text-gray-900">mahir</span>
                   </div>
                 </div>
 
@@ -53,7 +53,7 @@ const UserDashboard = () => {
                     Email
                   </label>
                   <div className="p-3 bg-gray-50 rounded-md border border-gray-200">
-                    <span className="text-gray-900">john@example.com</span>
+                    <span className="text-gray-900">mahir@gmail.com</span>
                   </div>
                 </div>
 
