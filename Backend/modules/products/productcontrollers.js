@@ -111,22 +111,8 @@ const addProduct = async (req, res) => {
   }
 };
 
-// Get product by ID
-// const getProductById = async (req, res) => {
-//   try {
-//     const db = getDB();
-//     const collection = db.collection("products");
-//     const { ObjectId } = require("mongodb");
-
-//     const product = await collection.findOne({ _id: new ObjectId(req.params.id) });
-//     if (!product) return res.status(404).json({ message: "Product not found" });
-//     res.json(product);
-//   } catch (err) {
-//     res.status(500).json({ message: err.message });
-//   }
-// };
-
 module.exports = {
   populateProducts,
   getProducts,
+    addProduct
 };
