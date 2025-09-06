@@ -2,6 +2,13 @@
 
 ![EcoFinds Logo](https://img.shields.io/badge/EcoFinds-Sustainable%20Marketplace-green?style=for-the-badge&logo=leaf)
 
+## 🔗 Links
+
+- 🚀 **Live Demo / Deploy Link**: [https://ecofinds-demo.vercel.app](https://ecofinds-demo.vercel.app)  
+- 🎨 **Figma Design**: [View Figma Prototype](https://www.figma.com/file/your-figma-link)
+
+---
+
 ## 🌍 Project Vision
 
 EcoFinds is a vibrant and trusted platform that revolutionizes the way people buy and sell pre-owned goods. Our mission is to foster a culture of sustainability by extending the lifecycle of products, reducing waste, and providing an accessible and convenient alternative to purchasing new items.
