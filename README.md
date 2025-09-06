@@ -5,7 +5,7 @@
 ## 🔗 Links
 
 - 🚀 **Live Demo / Deploy Link**: [https://ecofinds-demo.vercel.app](https://ecofinds-demo.vercel.app)  
-- 🎨 **Figma Design**: [View Figma Prototype](https://www.figma.com/file/your-figma-link)
+- 🎨 **Figma Design**: [View Figma Prototype]([https://www.figma.com/file/your-figma-link](https://www.figma.com/design/DTPG3EnZsGCmoRPZSl4mS2/Untitled?node-id=1-11&t=TQmVHOwQG2JtWvTN-1))
 
 ---
 
