@@ -4,6 +4,7 @@ import "./index.css";
 import Home from "./Pages/Home/home";
 import Navbar from "./componenets/Navbar";
 import Newsell from './Pages/Newsell'
+import Userdeshbord from './Pages/Userdeshbord'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sell" element={<Newsell />} />
+          <Route path="/deshbord" element={<Userdeshbord/>} />
         </Routes>
       </BrowserRouter>
     </>
