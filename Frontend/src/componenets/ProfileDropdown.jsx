@@ -57,7 +57,7 @@ export default function ProfileDropdown() {
     setError("");
 
     try {
-      const response = await fetch("http://localhost:5500/api/login", {
+      const response = await fetch("https://odooxnmit.onrender.com/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -84,7 +84,7 @@ export default function ProfileDropdown() {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5500/api/add", {
+      const response = await fetch("https://odooxnmit.onrender.com/api/add", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
