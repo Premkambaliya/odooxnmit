@@ -8,6 +8,8 @@ import Products from "./Pages/Products";
 import ProductDetail from "./Pages/ProductDetail";
 import Cart from "./Pages/Cart";   // <-- Add this import
 import ItemsPage from "./Pages/ItemsPage";
+import PurchaseHistory from "./Pages/PurchaseHistory";
+import Footer from "./componenets/Footer";
 
 function App() {
   return (
@@ -18,12 +20,14 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/sell" element={<Newsell />} />
           <Route path="/dashboard" element={<Userdashboard />} />
+          <Route path="/purchase-history" element={<PurchaseHistory />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="/cart" element={<Cart />} /> 
           <Route path="/my-items" element={<ItemsPage />} />
         </Routes>
       </div>
+      <Footer/>
     </BrowserRouter>
   );
 }
