@@ -1,12 +1,10 @@
 const express = require("express");
-const { createUser, getUserById, updateUser, deleteUser ,getUserByEmail} = require("./deshboardController");
+const { createUser, updateUser, deleteUser } = require("./deshboardController");
 
 const router = express.Router();
 
-router.post("/user", createUser);         // Create
-router.get("/user/:id", getUserById);     // Read
+router.post("/user", createUser);         // Create   // Read
 router.put("/user/:id", updateUser);      // Update
 router.delete("/user/:id", deleteUser);   // Delete
-router.get("/user", getUserByEmail); 
 
 module.exports = router;
