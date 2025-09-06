@@ -4,7 +4,7 @@
 
 ## 🔗 Links
 
-- 🚀 **Live Demo / Deploy Link**: [EcoFinds Live Site](https://ecofinds-second-hand.netlify.app/) 
+- 🚀 **Live Demo / Deploy Link**: [EcoFinds Live Site](https://ecofinds-second-hand.netlify.app/)
 - 🎨 **Figma Design**: [View Figma Prototype](https://www.figma.com/design/DTPG3EnZsGCmoRPZSl4mS2/Untitled?node-id=1-11&t=TQmVHOwQG2JtWvTN-1)
 
 ---
