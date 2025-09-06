@@ -69,7 +69,7 @@ export default function ProductDetail() {
         {/* Left - Image */}
         <div className="flex justify-center">
           <img
-            src={product.imageUrl || "/placeholder.png"}
+            src={product.image || "/placeholder.png"}
             alt={product.title}
             className="max-h-[500px] w-auto object-contain rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
           />
@@ -137,7 +137,7 @@ export default function ProductDetail() {
                 {/* Image */}
                 <div className="h-48 flex items-center justify-center bg-gray-100">
                   <img
-                    src={item.imageUrl || "/placeholder.png"}
+                    src={item.image || "/placeholder.png"}
                     alt={item.title}
                     className="max-h-full object-contain"
                   />
